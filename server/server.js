@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const cors = require('cors');
 const connectDB = require('./config/db'); // ✅ MongoDB connection
 const protectedRoutes = require("./routes/protected");
+const tripRoutes = require('./routes/trips');
 
 
 dotenv.config();         // ✅ Load environment variables
@@ -14,9 +15,11 @@ app.use(cors());
 app.use(express.json());
 
 // Auth Routes
-app.use("/api", require("./routes/auth"));
+app.use("/api/auth", require("./routes/auth"));
 
 app.use("/api", protectedRoutes);
+
+app.use('/api/trips', tripRoutes);
 
 const PORT = process.env.PORT || 5000;
 
