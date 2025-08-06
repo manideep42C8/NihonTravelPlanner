@@ -6,6 +6,11 @@ const itinerarySchema = new mongoose.Schema({
     ref: 'Trip',
     required: true
   },
+   user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',        
+    required: true
+  },
   day: {
     type: Number,
     required: true

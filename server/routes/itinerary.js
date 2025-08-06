@@ -6,11 +6,21 @@ const auth = require('../middleware/auth');
 // Create an itinerary entry
 router.post('/', auth, async (req, res) => {
   try {
-    const itinerary = new Itinerary(req.body);
+    const itinerary = new Itinerary({...req.body,user: req.user.userId});
     const saved = await itinerary.save();
     res.status(201).json(saved);
   } catch (err) {
     res.status(500).json({ error: 'Failed to create itinerary' });
+  }
+});
+
+// GET all itineraries of the user (Option 2)
+router.get('/', auth, async (req, res) => {
+  try {
+    const itineraries = await Itinerary.find({ user: req.user.userId });
+    res.status(200).json(itineraries);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch itineraries' });
   }
 });
 
