@@ -6,7 +6,7 @@ const auth = require('../middleware/auth');
 // Create an itinerary entry
 router.post('/', auth, async (req, res) => {
   try {
-    const itinerary = new Itinerary({...req.body,user: req.user.userId});
+    const itinerary = new Itinerary({ ...req.body, user: req.user.userId });
     const saved = await itinerary.save();
     res.status(201).json(saved);
   } catch (err) {
@@ -34,26 +34,53 @@ router.get('/:tripId', auth, async (req, res) => {
   }
 });
 
-// Update itinerary
+// Update an itinerary by ID
 router.put('/:id', auth, async (req, res) => {
+  console.log("Updating itinerary:", req.params.id, "for user:", req.user.userId);
+  console.log("req.params.id:", req.params.id);
+  console.log("req.user.userId:", req.user.userId);
+
   try {
-    const updated = await Itinerary.findByIdAndUpdate(req.params.id, req.body, { new: true });
-    if (!updated) return res.status(404).json({ error: 'Itinerary not found' });
-    res.status(200).json(updated);
+    const updated = await Itinerary.findOneAndUpdate(
+      { _id: req.params.id, user: req.user.userId }, // 🔐 Secure update
+      { $set: req.body },
+      { new: true }
+    );
+
+    if (!updated) {
+      console.log('Itinerary not found or does not belong to user');
+      return res.status(404).json({ error: "Itinerary not found" });
+    }
+
+    console.log("Itinerary updated:", updated);
+
+    res.status(200).json({
+      message: 'Itinerary updated successfully',
+      itinerary: updated
+    });
   } catch (err) {
-    res.status(500).json({ error: 'Failed to update itinerary' });
+    console.error("Update failed:", err);
+    res.status(500).json({ error: "Failed to update itinerary" });
   }
 });
 
-// Delete itinerary
+
+// Delete an itinerary by ID
 router.delete('/:id', auth, async (req, res) => {
   try {
-    const deleted = await Itinerary.findByIdAndDelete(req.params.id);
-    if (!deleted) return res.status(404).json({ error: 'Itinerary not found' });
-    res.status(200).json({ message: 'Itinerary deleted' });
+    const deleted = await Itinerary.findOneAndDelete({
+      _id: req.params.id,
+      user: req.user.userId
+    });
+
+    if (!deleted) return res.status(404).json({ error: "Itinerary not found" });
+
+    res.status(200).json({ message: "Itinerary deleted successfully" });
   } catch (err) {
-    res.status(500).json({ error: 'Failed to delete itinerary' });
+    console.error("Delete failed:", err);
+    res.status(500).json({ error: "Failed to delete itinerary" });
   }
 });
+
 
 module.exports = router;
