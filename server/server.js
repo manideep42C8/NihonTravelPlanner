@@ -5,6 +5,7 @@ const connectDB = require('./config/db'); // ✅ MongoDB connection
 const protectedRoutes = require("./routes/protected");
 const tripRoutes = require('./routes/trips');
 const itineraryRoutes = require('./routes/itinerary');
+const userRoutes = require('./routes/user');
 
 
 dotenv.config();         // ✅ Load environment variables
@@ -23,6 +24,9 @@ app.use("/api", protectedRoutes);
 app.use('/api/trips', tripRoutes);
 
 app.use('/api/itinerary', itineraryRoutes);
+
+app.use('/api/users', userRoutes);
+
 
 const PORT = process.env.PORT || 5000;
 
