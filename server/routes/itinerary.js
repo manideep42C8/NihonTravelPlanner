@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const Itinerary = require('../models/Itinerary');
-const auth = require('../middleware/auth');
+const auth = require('../middleware/authMiddleware');
 
 // Create an itinerary entry
 router.post('/', auth, async (req, res) => {
   try {
-    const itinerary = new Itinerary({ ...req.body, user: req.user.userId });
+    const itinerary = new Itinerary({ ...req.body, user: req.user.id });
     const saved = await itinerary.save();
     res.status(201).json(saved);
   } catch (err) {
@@ -17,7 +17,7 @@ router.post('/', auth, async (req, res) => {
 // GET all itineraries of the user (Option 2)
 router.get('/', auth, async (req, res) => {
   try {
-    const itineraries = await Itinerary.find({ user: req.user.userId });
+    const itineraries = await Itinerary.find({ user: req.user.id });
     res.status(200).json(itineraries);
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch itineraries' });
@@ -36,13 +36,13 @@ router.get('/:tripId', auth, async (req, res) => {
 
 // Update an itinerary by ID
 router.put('/:id', auth, async (req, res) => {
-  console.log("Updating itinerary:", req.params.id, "for user:", req.user.userId);
+  console.log("Updating itinerary:", req.params.id, "for user:", req.user.id);
   console.log("req.params.id:", req.params.id);
-  console.log("req.user.userId:", req.user.userId);
+  console.log("req.user.id:", req.user.id);
 
   try {
     const updated = await Itinerary.findOneAndUpdate(
-      { _id: req.params.id, user: req.user.userId }, // 🔐 Secure update
+      { _id: req.params.id, user: req.user.id }, // 🔐 Secure update
       { $set: req.body },
       { new: true }
     );
@@ -70,7 +70,7 @@ router.delete('/:id', auth, async (req, res) => {
   try {
     const deleted = await Itinerary.findOneAndDelete({
       _id: req.params.id,
-      user: req.user.userId
+      user: req.user.id
     });
 
     if (!deleted) return res.status(404).json({ error: "Itinerary not found" });
