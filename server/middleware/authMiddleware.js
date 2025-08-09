@@ -11,10 +11,7 @@ const verifyToken = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = decoded; // store user data for access in route
-
-    console.log('Decoded user from token:', req.user);
-    console.log('Connected DB:', process.env.MONGO_URI);
+    req.user = { id: decoded.id }; // ✅ Always use id
 
     next();
   } catch (err) {

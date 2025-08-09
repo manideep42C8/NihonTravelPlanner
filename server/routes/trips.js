@@ -1,13 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const Trip = require('../models/Trip');
-const auth = require('../middleware/auth');
+const auth = require('../middleware/authMiddleware');
 
 // Create a new trip
 router.post('/', auth, async (req, res) => {
   try {
     const trip = new Trip({
-      user: req.user.userId,
+      user: req.user.id,
       title: req.body.title,
       destination: req.body.destination,
       startDate: req.body.startDate,
@@ -26,7 +26,7 @@ router.post('/', auth, async (req, res) => {
 // Get all trips for the logged-in user
 router.get('/', auth, async (req, res) => {
   try {
-    const trips = await Trip.find({ user: req.user.userId }); 
+    const trips = await Trip.find({ user: req.user.id }); 
     res.status(200).json(trips);
   } catch (error) {
     console.error("Failed to fetch trips:", error);
@@ -38,7 +38,7 @@ router.get('/', auth, async (req, res) => {
 router.put('/:id', auth, async (req, res) => {
   try {
     const updatedTrip = await Trip.findOneAndUpdate(
-      { _id: req.params.id, user: req.user.userId },
+      { _id: req.params.id, user: req.user.id },
       { $set: req.body },
       { new: true }
     );
@@ -60,7 +60,7 @@ router.delete('/:id', auth, async (req, res) => {
   try {
     const deletedTrip = await Trip.findOneAndDelete({
       _id: req.params.id,
-      user: req.user.userId
+      user: req.user.id
     });
 
     if (!deletedTrip) {
