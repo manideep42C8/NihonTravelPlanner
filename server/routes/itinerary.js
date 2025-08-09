@@ -1,10 +1,13 @@
 const express = require('express');
 const router = express.Router();
+
 const Itinerary = require('../models/Itinerary');
 const auth = require('../middleware/authMiddleware');
+const { itineraryValidation } = require('../validators/itineraryValidator');
+const validate = require('../middleware/validate');
 
-// Create an itinerary entry
-router.post('/', auth, async (req, res) => {
+// Create an itinerary entry with validation
+router.post('/', auth, itineraryValidation, validate, async (req, res) => {
   try {
     const itinerary = new Itinerary({ ...req.body, user: req.user.id });
     const saved = await itinerary.save();
@@ -14,7 +17,7 @@ router.post('/', auth, async (req, res) => {
   }
 });
 
-// GET all itineraries of the user (Option 2)
+// GET all itineraries of the user
 router.get('/', auth, async (req, res) => {
   try {
     const itineraries = await Itinerary.find({ user: req.user.id });
@@ -34,36 +37,27 @@ router.get('/:tripId', auth, async (req, res) => {
   }
 });
 
-// Update an itinerary by ID
-router.put('/:id', auth, async (req, res) => {
-  console.log("Updating itinerary:", req.params.id, "for user:", req.user.id);
-  console.log("req.params.id:", req.params.id);
-  console.log("req.user.id:", req.user.id);
-
+// Update an itinerary by ID with validation
+router.put('/:id', auth, itineraryValidation, validate, async (req, res) => {
   try {
     const updated = await Itinerary.findOneAndUpdate(
-      { _id: req.params.id, user: req.user.id }, // 🔐 Secure update
+      { _id: req.params.id, user: req.user.id },
       { $set: req.body },
       { new: true }
     );
 
     if (!updated) {
-      console.log('Itinerary not found or does not belong to user');
       return res.status(404).json({ error: "Itinerary not found" });
     }
-
-    console.log("Itinerary updated:", updated);
 
     res.status(200).json({
       message: 'Itinerary updated successfully',
       itinerary: updated
     });
   } catch (err) {
-    console.error("Update failed:", err);
     res.status(500).json({ error: "Failed to update itinerary" });
   }
 });
-
 
 // Delete an itinerary by ID
 router.delete('/:id', auth, async (req, res) => {
@@ -77,10 +71,8 @@ router.delete('/:id', auth, async (req, res) => {
 
     res.status(200).json({ message: "Itinerary deleted successfully" });
   } catch (err) {
-    console.error("Delete failed:", err);
     res.status(500).json({ error: "Failed to delete itinerary" });
   }
 });
-
 
 module.exports = router;

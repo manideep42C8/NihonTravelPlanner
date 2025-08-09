@@ -2,12 +2,14 @@ const express = require('express');
 const router = express.Router();
 const Trip = require('../models/Trip');
 const auth = require('../middleware/authMiddleware');
+const { tripValidation } = require('../validators/tripValidator');
+const validate = require('../middleware/validate');
 
-// Create a new trip
-router.post('/', auth, async (req, res) => {
+// Create a new trip with validation
+router.post('/', auth, tripValidation, validate, async (req, res) => {
   try {
     const trip = new Trip({
-      user: req.user.id,
+      user: req.user.id,  // use userId as per your authMiddleware
       title: req.body.title,
       destination: req.body.destination,
       startDate: req.body.startDate,
@@ -23,7 +25,7 @@ router.post('/', auth, async (req, res) => {
   }
 });
 
-// Get all trips for the logged-in user
+// Get all trips for the logged-in user (no validation needed here)
 router.get('/', auth, async (req, res) => {
   try {
     const trips = await Trip.find({ user: req.user.id }); 
@@ -34,8 +36,8 @@ router.get('/', auth, async (req, res) => {
   }
 });
 
-// Update a trip by ID
-router.put('/:id', auth, async (req, res) => {
+// Update a trip by ID with validation
+router.put('/:id', auth, tripValidation, validate, async (req, res) => {
   try {
     const updatedTrip = await Trip.findOneAndUpdate(
       { _id: req.params.id, user: req.user.id },
@@ -55,7 +57,7 @@ router.put('/:id', auth, async (req, res) => {
   }
 });
 
-// Delete a trip by ID
+// Delete a trip by ID (no validation needed here)
 router.delete('/:id', auth, async (req, res) => {
   try {
     const deletedTrip = await Trip.findOneAndDelete({
