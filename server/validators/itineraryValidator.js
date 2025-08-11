@@ -1,3 +1,4 @@
+//validators/itineraryValidator.js
 const { body } = require('express-validator');
 
 exports.itineraryValidation = [

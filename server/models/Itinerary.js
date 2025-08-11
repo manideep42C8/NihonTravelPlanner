@@ -1,3 +1,4 @@
+//models/Itinerary.js
 const mongoose = require('mongoose');
 
 const itinerarySchema = new mongoose.Schema({
