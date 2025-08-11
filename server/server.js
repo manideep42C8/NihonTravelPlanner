@@ -15,7 +15,11 @@ connectDB();             // ✅ Connect to MongoDB
 
 const app = express();
 
-app.use(cors());
+// ✅ Configure CORS to allow only your frontend URL
+app.use(cors({
+  origin: process.env.FRONTEND_URL,
+  credentials: true, // allows cookies/auth headers
+}));
 app.use(express.json());
 
 // Auth Routes
@@ -29,6 +33,7 @@ app.use('/api/itinerary', itineraryRoutes);
 
 app.use('/api/users', userRoutes);
 
+// Centralized error handler
 app.use(errorHandler);
 
 
