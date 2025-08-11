@@ -1,3 +1,4 @@
+//validators/userValidator.js
 const { body } = require('express-validator');
 
 exports.updateProfileValidation = [

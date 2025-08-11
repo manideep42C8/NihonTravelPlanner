@@ -1,3 +1,4 @@
+//validators/triipValidator.js
 const { body } = require('express-validator');
 
 exports.tripValidation = [
