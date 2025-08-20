@@ -9,6 +9,7 @@ import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { Eye, EyeOff } from "lucide-react"
+import axios from "axios"   // ✅ Added axios
 
 export default function LoginPage() {
   const [email, setEmail] = useState("")
@@ -23,23 +24,23 @@ export default function LoginPage() {
     setIsSubmitting(true)
 
     try {
-      const res = await fetch("http://localhost:5000/api/auth/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+      // ✅ axios POST request
+      const res = await axios.post("http://localhost:5000/api/auth/login", {
+        email,
+        password,
       })
 
-      const data = await res.json()
-
-      if (res.ok) {
+      if (res.status === 200) {
         setMessage("Login successful! Redirecting...")
-        localStorage.setItem("token", data.token) // store JWT
+        localStorage.setItem("token", res.data.token) // store JWT
         setTimeout(() => router.push("/"), 1000)
-      } else {
-        setMessage(data.message || "Invalid credentials. Please try again.")
       }
-    } catch (error) {
-      setMessage("Server error. Please try later.")
+    } catch (error: any) {
+      if (error.response) {
+        setMessage(error.response.data.message || "Invalid credentials. Please try again.")
+      } else {
+        setMessage("Server error. Please try later.")
+      }
     } finally {
       setIsSubmitting(false)
     }

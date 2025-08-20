@@ -1,12 +1,24 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Menu, X, User, UserPlus } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  useEffect(() => {
+    const token = localStorage.getItem("token")
+    setIsLoggedIn(!!token)
+  }, [])
+
+  const handleLogout = () => {
+    localStorage.removeItem("token")
+    setIsLoggedIn(false)
+    window.location.href = "/" // redirect to home
+  }
 
   const navItems = [
     { href: "/", label: "Home" },
@@ -37,26 +49,51 @@ export default function Navigation() {
                 {item.label}
               </Link>
             ))}
+
             <div className="flex items-center gap-3">
-              <Link href="/login">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="flex items-center gap-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
-                >
-                  <User className="h-4 w-4" />
-                  Login
-                </Button>
-              </Link>
-              <Link href="/register">
-                <Button
-                  size="sm"
-                  className="flex items-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90"
-                >
-                  <UserPlus className="h-4 w-4" />
-                  Register
-                </Button>
-              </Link>
+              {isLoggedIn ? (
+                <>
+                  <Link href="/profile">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="flex items-center gap-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
+                    >
+                      <User className="h-4 w-4" />
+                      Profile
+                    </Button>
+                  </Link>
+                  <Button
+                    size="sm"
+                    variant="destructive"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Link href="/login">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="flex items-center gap-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
+                    >
+                      <User className="h-4 w-4" />
+                      Login
+                    </Button>
+                  </Link>
+                  <Link href="/register">
+                    <Button
+                      size="sm"
+                      className="flex items-center gap-2 bg-primary text-primary-foreground hover:bg-primary/90"
+                    >
+                      <UserPlus className="h-4 w-4" />
+                      Register
+                    </Button>
+                  </Link>
+                </>
+              )}
             </div>
           </div>
 
@@ -82,20 +119,41 @@ export default function Navigation() {
                   {item.label}
                 </Link>
               ))}
-              <Link
-                href="/login"
-                className="block px-3 py-2 font-serif text-foreground hover:text-primary transition-colors duration-200"
-                onClick={() => setIsOpen(false)}
-              >
-                Login
-              </Link>
-              <Link
-                href="/register"
-                className="block px-3 py-2 font-serif text-foreground hover:text-primary transition-colors duration-200"
-                onClick={() => setIsOpen(false)}
-              >
-                Register
-              </Link>
+
+              {isLoggedIn ? (
+                <>
+                  <Link
+                    href="/profile"
+                    className="block px-3 py-2 font-serif text-foreground hover:text-primary transition-colors duration-200"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Profile
+                  </Link>
+                  <button
+                    onClick={handleLogout}
+                    className="block w-full text-left px-3 py-2 font-serif text-red-600 hover:text-red-800 transition-colors duration-200"
+                  >
+                    Logout
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link
+                    href="/login"
+                    className="block px-3 py-2 font-serif text-foreground hover:text-primary transition-colors duration-200"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    href="/register"
+                    className="block px-3 py-2 font-serif text-foreground hover:text-primary transition-colors duration-200"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Register
+                  </Link>
+                </>
+              )}
             </div>
           </div>
         )}
