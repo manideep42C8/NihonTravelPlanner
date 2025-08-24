@@ -357,6 +357,9 @@
   .invisible {
     visibility: hidden;
   }
+  .visible {
+    visibility: visible;
+  }
   .sr-only {
     position: absolute;
     width: 1px;
@@ -547,9 +550,6 @@
   }
   .mr-1 {
     margin-right: calc(var(--spacing) * 1);
-  }
-  .mr-2 {
-    margin-right: calc(var(--spacing) * 2);
   }
   .mb-1 {
     margin-bottom: calc(var(--spacing) * 1);
@@ -1001,6 +1001,9 @@
   }
   .cursor-default {
     cursor: default;
+  }
+  .cursor-pointer {
+    cursor: pointer;
   }
   .touch-none {
     touch-action: none;
@@ -5042,6 +5045,9 @@
   syntax: "*";
   inherits: false;
   initial-value: 0;
+}
+button, a {
+  cursor: pointer;
 }
 :root {
   --background: oklch(1 0 0);

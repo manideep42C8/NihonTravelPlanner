@@ -3,6 +3,9 @@
 
 @custom-variant dark (&:is(.dark *));
 
+button, a {
+  cursor:pointer;
+}
 :root {
   /* Japanese-inspired color palette */
   --background: oklch(1 0 0); /* Pure white */

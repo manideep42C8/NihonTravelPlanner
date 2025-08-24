@@ -1,15 +1,17 @@
-//controllers/authController.js
 const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const nodemailer = require("nodemailer");
 const crypto = require("crypto");
+const { OAuth2Client } = require("google-auth-library");
 
 const JWT_SECRET = process.env.JWT_SECRET;
 const REFRESH_SECRET = process.env.REFRESH_SECRET;
 let refreshTokens = [];
 
 const passwordRegex = /^(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]).{8,}$/;
+
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 async function getTransporter() {
   if (process.env.NODE_ENV === "development") {
@@ -57,12 +59,12 @@ exports.registerUser = async (req, res, next) => {
     });
     await newUser.save();
 
-    const verifyLink = `http://localhost:5000/api/auth/verify-email/${verificationToken}`;
+    const verifyLink = `${process.env.FRONTEND_URL || "http://localhost:5000"}/api/auth/verify-email/${verificationToken}`;
     const transporter = await getTransporter();
     const info = await transporter.sendMail({
-      from: process.env.NODE_ENV === "development" 
-            ? `"NihonTravel Planner" <${transporter.options.auth.user}>` 
-            : `"NihonTravel Planner" <${process.env.SMTP_USER}>`,
+      from: process.env.NODE_ENV === "development"
+        ? `"NihonTravel Planner" <${transporter.options.auth.user}>`
+        : `"NihonTravel Planner" <${process.env.SMTP_USER}>`,
       to: email,
       subject: "Verify Your Email - NihonTravel Planner",
       html: `<p>Click below to verify your email:</p><a href="${verifyLink}">${verifyLink}</a>`
@@ -96,18 +98,33 @@ exports.verifyEmail = async (req, res) => {
   }
 };
 
-// ------------------ Google Registration ------------------
+// ------------------ Google Registration/Login (Secure) ------------------
 exports.registerGoogle = async (req, res, next) => {
   try {
-    const { email, name } = req.body;
-    let user = await User.findOne({ email });
+    const { credential } = req.body;
+    if (!credential) {
+      return res.status(400).json({ message: "Missing Google credential" });
+    }
 
+    // Verify credential with Google
+    const ticket = await client.verifyIdToken({
+      idToken: credential,
+      audience: process.env.GOOGLE_CLIENT_ID,
+    });
+
+    const payload = ticket.getPayload();
+    const email = payload.email;
+    const name = payload.name || email.split("@")[0];
+    const picture = payload.picture;
+
+    let user = await User.findOne({ email });
     if (!user) {
       user = new User({
-        name: name || email.split("@")[0],
+        name,
         email,
-        password: null,
-        isVerified: true
+        password: null, // Google users don’t need a password
+        isVerified: true,
+        avatar: picture
       });
       await user.save();
     }
@@ -118,7 +135,8 @@ exports.registerGoogle = async (req, res, next) => {
 
     res.json({ accessToken, refreshToken, user });
   } catch (err) {
-    next(err);
+    console.error("Google Auth Error:", err);
+    res.status(401).json({ message: "Invalid Google token" });
   }
 };
 
@@ -143,7 +161,7 @@ exports.loginUser = async (req, res, next) => {
   }
 };
 
-// ------------------ Password Reset Request (Forgot Password) ------------------
+// ------------------ Password Reset Request ------------------
 exports.requestPasswordReset = async (req, res, next) => {
   try {
     const { email } = req.body;
@@ -158,9 +176,9 @@ exports.requestPasswordReset = async (req, res, next) => {
     const resetLink = `${process.env.FRONTEND_URL}/password-reset/${token}`;
     const transporter = await getTransporter();
     const info = await transporter.sendMail({
-      from: process.env.NODE_ENV === "development" 
-            ? `"NihonTravel Planner" <${transporter.options.auth.user}>` 
-            : `"NihonTravel Planner" <${process.env.SMTP_USER}>`,
+      from: process.env.NODE_ENV === "development"
+        ? `"NihonTravel Planner" <${transporter.options.auth.user}>`
+        : `"NihonTravel Planner" <${process.env.SMTP_USER}>`,
       to: email,
       subject: "Password Reset - NihonTravel Planner",
       html: `<p>Click below to reset your password (valid 1 hour):</p>
@@ -177,7 +195,7 @@ exports.requestPasswordReset = async (req, res, next) => {
   }
 };
 
-// ------------------ Reset Password via Token ------------------
+// ------------------ Reset Password ------------------
 exports.resetPassword = async (req, res, next) => {
   try {
     const { token } = req.params;
@@ -187,9 +205,9 @@ exports.resetPassword = async (req, res, next) => {
       return res.status(400).json({ message: "Password must be 8+ chars, 1 uppercase, 1 number, 1 special char" });
     }
 
-    const user = await User.findOne({ 
-      resetPasswordToken: token, 
-      resetPasswordExpires: { $gt: Date.now() } 
+    const user = await User.findOne({
+      resetPasswordToken: token,
+      resetPasswordExpires: { $gt: Date.now() }
     });
     if (!user) return res.status(400).json({ message: "Invalid or expired token" });
 
@@ -204,10 +222,10 @@ exports.resetPassword = async (req, res, next) => {
   }
 };
 
-// Change password (Profile) for logged-in users
+// ------------------ Change Password (Profile) ------------------
 exports.changePasswordProfile = async (req, res, next) => {
   try {
-    const userId = req.user.id; // from authMiddleware
+    const userId = req.user.id;
     const { oldPassword, newPassword, confirmNewPassword } = req.body;
 
     if (!oldPassword || !newPassword || !confirmNewPassword) {
@@ -219,7 +237,7 @@ exports.changePasswordProfile = async (req, res, next) => {
     }
 
     if (!passwordRegex.test(newPassword)) {
-      return res.status(400).json({ message: "New password must be 8+ chars, include 1 uppercase, 1 number, and 1 special character" });
+      return res.status(400).json({ message: "New password must be 8+ chars, include 1 uppercase, 1 number, 1 special character" });
     }
 
     const user = await User.findById(userId);
@@ -236,7 +254,6 @@ exports.changePasswordProfile = async (req, res, next) => {
     next(err);
   }
 };
-
 
 // ------------------ Refresh Token ------------------
 exports.refreshToken = (req, res) => {

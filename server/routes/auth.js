@@ -15,6 +15,12 @@ const {
   changePasswordProfile   // Change password via profile (old password)
 } = require("../controllers/authController");
 
+router.use((req, res, next) => {
+  console.log(`[AUTH ROUTE] ${req.method} ${req.originalUrl}`);
+  console.log("Request Body:", req.body);
+  next();
+});
+
 const authMiddleware = require("../middleware/authMiddleware");
 
 const { registerValidation, loginValidation } = require("../validators/authValidator");
@@ -24,7 +30,7 @@ const validate = require("../middleware/validate");
 router.post("/register", registerValidation, validate, registerUser);
 
 // Google auto-registration (no password needed)
-router.post("/register/google", registerGoogle);
+router.post("/google", registerGoogle);
 
 // Email verification route
 router.get("/verify-email/:token", verifyEmail);

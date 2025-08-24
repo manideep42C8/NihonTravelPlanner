@@ -37,7 +37,7 @@ export default function LoginPage() {
       }
     } catch (error: any) {
       if (error.response) {
-        setMessage(error.response.data.message || "Invalid credentials. Please try again.")
+        setMessage(error.response.data.message || "Wrong password. Try again or click ‘Forgot password’ to reset it.")
       } else {
         setMessage("Server error. Please try later.")
       }
