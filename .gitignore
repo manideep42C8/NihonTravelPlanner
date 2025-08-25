@@ -10,3 +10,5 @@ client/.env
 
 # Log files
 *.log
+
+/client/.next
