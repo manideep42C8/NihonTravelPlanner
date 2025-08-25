@@ -11,6 +11,17 @@ exports.createTrip = async (req, res, next) => {
   }
 };
 
+exports.getTripById = async (req, res, next) => {
+  try {
+    const trip = await Trip.findOne({ _id: req.params.id, user: req.user.id });
+    if (!trip) return res.status(404).json({ error: "Trip not found" });
+    res.status(200).json(trip);
+  } catch (error) {
+    next(error);
+  }
+};
+
+
 exports.getTrips = async (req, res, next) => {
   try {
     const trips = await Trip.find({ user: req.user.id });

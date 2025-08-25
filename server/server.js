@@ -12,6 +12,7 @@ const errorHandler = require('./middleware/errorHandler');
 
 
 dotenv.config();         // ✅ Load environment variables
+console.log(process.env.JWT_SECRET);
 connectDB();             // ✅ Connect to MongoDB
 
 const app = express();

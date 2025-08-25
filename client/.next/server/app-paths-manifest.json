@@ -1,7 +1,7 @@
 {
-  "/culture/page": "app/culture/page.js",
   "/login/page": "app/login/page.js",
   "/page": "app/page.js",
-  "/register/page": "app/register/page.js",
-  "/destinations/page": "app/destinations/page.js"
+  "/itinerary/[id]/edit/page": "app/itinerary/[id]/edit/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/itinerary/[id]/page": "app/itinerary/[id]/page.js"
 }

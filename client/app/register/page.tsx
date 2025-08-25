@@ -46,11 +46,11 @@ export default function RegisterPage() {
         password,
       })
 
-      setMessage("Registration successful! Redirecting...")
+      setMessage("Registration successful! Check email to verify. Redirecting to login...")
       localStorage.setItem("token", res.data.token)
 
       setTimeout(() => {
-        router.push("/")
+        router.push("/login")
       }, 1000)
     } catch (error: any) {
       console.error("Registration Error:", error.response?.data || error.message)

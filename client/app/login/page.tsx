@@ -32,7 +32,8 @@ export default function LoginPage() {
 
       if (res.status === 200) {
         setMessage("Login successful! Redirecting...")
-        localStorage.setItem("token", res.data.token) // store JWT
+        localStorage.setItem("token", res.data.accessToken) // store JWT correctly
+ // store JWT
         setTimeout(() => router.push("/"), 1000)
       }
     } catch (error: any) {

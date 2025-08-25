@@ -118,6 +118,13 @@ exports.registerGoogle = async (req, res, next) => {
     const picture = payload.picture;
 
     let user = await User.findOne({ email });
+    // ✅ Automatically verify existing Google users
+    if (user && !user.isVerified) {
+      user.isVerified = true;
+      await user.save();
+    }
+
+
     if (!user) {
       user = new User({
         name,
