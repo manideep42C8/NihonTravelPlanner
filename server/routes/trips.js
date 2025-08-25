@@ -8,6 +8,8 @@ const tripController = require("../controllers/tripController");
 
 router.post("/", auth, tripValidation, validate, tripController.createTrip);
 router.get("/", auth, tripController.getTrips);
+router.get("/:id", auth, tripController.getTripById);
+
 router.put("/:id", auth, tripValidation, validate, tripController.updateTrip);
 router.delete("/:id", auth, tripController.deleteTrip);
 
