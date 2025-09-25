@@ -1,0 +1,65 @@
+{
+  "city": "Fukuoka",
+  "attractions": [
+    {
+      "name": "Ohori Park",
+      "category": "nature",
+      "description": "A spacious Japanese-style garden and park with a central pond, perfect for walks and boating.",
+      "open": "00:00",
+      "close": "23:59",
+      "duration": 90,
+      "area": "Chuo-ku",
+      "entryFee": 0,
+      "rating": 4.6,
+      "tags": ["park", "garden", "scenic"]
+    },
+    {
+      "name": "Fukuoka Tower",
+      "category": "scenic",
+      "description": "A 234-meter tall seaside tower offering panoramic views of Hakata Bay and the city skyline.",
+      "open": "09:30",
+      "close": "22:00",
+      "duration": 60,
+      "area": "Momochihama",
+      "entryFee": 800,
+      "rating": 4.5,
+      "tags": ["tower", "views", "landmark"]
+    },
+    {
+      "name": "Canal City Hakata",
+      "category": "shopping",
+      "description": "A large shopping and entertainment complex with a canal running through it, featuring shows and fountains.",
+      "open": "10:00",
+      "close": "21:00",
+      "duration": 120,
+      "area": "Hakata",
+      "entryFee": 0,
+      "rating": 4.4,
+      "tags": ["shopping", "mall", "entertainment"]
+    },
+    {
+      "name": "Dazaifu Tenmangu Shrine",
+      "category": "culture",
+      "description": "A famous shrine dedicated to the god of learning, attracting many students and visitors.",
+      "open": "06:30",
+      "close": "19:00",
+      "duration": 60,
+      "area": "Dazaifu",
+      "entryFee": 0,
+      "rating": 4.7,
+      "tags": ["shrine", "historic", "education"]
+    },
+    {
+      "name": "Nakasu Yatai Stalls",
+      "category": "food",
+      "description": "Open-air food stalls along the river offering Hakata ramen and other local specialties.",
+      "open": "18:00",
+      "close": "02:00",
+      "duration": 90,
+      "area": "Nakasu",
+      "entryFee": 0,
+      "rating": 4.6,
+      "tags": ["street food", "nightlife", "local cuisine"]
+    }
+  ]
+}

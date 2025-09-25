@@ -1,0 +1,65 @@
+{
+  "city": "Nara",
+  "attractions": [
+    {
+      "name": "Todai-ji Temple",
+      "category": "culture",
+      "description": "A UNESCO World Heritage temple housing the Great Buddha, one of Japan’s largest bronze statues.",
+      "open": "07:30",
+      "close": "17:30",
+      "duration": 120,
+      "area": "Nara Park",
+      "entryFee": 600,
+      "rating": 4.8,
+      "tags": ["temple", "unesco", "historic"]
+    },
+    {
+      "name": "Nara Park",
+      "category": "nature",
+      "description": "Famous park where friendly deer roam freely and interact with visitors.",
+      "open": "00:00",
+      "close": "23:59",
+      "duration": 90,
+      "area": "Central Nara",
+      "entryFee": 0,
+      "rating": 4.7,
+      "tags": ["park", "deer", "scenic"]
+    },
+    {
+      "name": "Kasuga Taisha Shrine",
+      "category": "culture",
+      "description": "Historic shrine with hundreds of stone and bronze lanterns, especially beautiful during lantern festivals.",
+      "open": "06:00",
+      "close": "18:00",
+      "duration": 60,
+      "area": "Kasugano-cho",
+      "entryFee": 500,
+      "rating": 4.6,
+      "tags": ["shrine", "lanterns", "historic"]
+    },
+    {
+      "name": "Kofuku-ji Temple",
+      "category": "historic",
+      "description": "Once one of the powerful Seven Great Temples, featuring a five-story pagoda.",
+      "open": "09:00",
+      "close": "17:00",
+      "duration": 60,
+      "area": "Noborioji-cho",
+      "entryFee": 300,
+      "rating": 4.5,
+      "tags": ["temple", "pagoda", "unesco"]
+    },
+    {
+      "name": "Naramachi",
+      "category": "historic",
+      "description": "A preserved district with traditional wooden townhouses, shops, cafes, and craft museums.",
+      "open": "10:00",
+      "close": "18:00",
+      "duration": 90,
+      "area": "Naramachi",
+      "entryFee": 0,
+      "rating": 4.4,
+      "tags": ["historic", "shopping", "traditional"]
+    }
+  ]
+}

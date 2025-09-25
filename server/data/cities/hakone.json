@@ -1,0 +1,65 @@
+{
+  "city": "Hakone",
+  "attractions": [
+    {
+      "name": "Hakone Open-Air Museum",
+      "category": "art",
+      "description": "An outdoor museum featuring sculptures, artwork, and a Picasso Pavilion surrounded by nature.",
+      "open": "09:00",
+      "close": "17:00",
+      "duration": 120,
+      "area": "Chokoku-no-Mori",
+      "entryFee": 1600,
+      "rating": 4.7,
+      "tags": ["museum", "art", "outdoor"]
+    },
+    {
+      "name": "Lake Ashi",
+      "category": "scenic",
+      "description": "A scenic crater lake with boat cruises offering views of Mount Fuji on clear days.",
+      "open": "09:00",
+      "close": "17:00",
+      "duration": 90,
+      "area": "Ashinoko",
+      "entryFee": 1000,
+      "rating": 4.6,
+      "tags": ["lake", "scenic", "cruise"]
+    },
+    {
+      "name": "Hakone Shrine",
+      "category": "culture",
+      "description": "Historic Shinto shrine famous for its red torii gate standing in Lake Ashi.",
+      "open": "05:00",
+      "close": "17:00",
+      "duration": 60,
+      "area": "Moto-Hakone",
+      "entryFee": 0,
+      "rating": 4.7,
+      "tags": ["shrine", "historic", "culture"]
+    },
+    {
+      "name": "Owakudani Valley",
+      "category": "nature",
+      "description": "Volcanic valley with hot springs, sulfur vents, and the famous black eggs boiled in volcanic water.",
+      "open": "09:00",
+      "close": "17:00",
+      "duration": 90,
+      "area": "Owakudani",
+      "entryFee": 0,
+      "rating": 4.5,
+      "tags": ["volcano", "nature", "unique food"]
+    },
+    {
+      "name": "Hakone Ropeway",
+      "category": "transport",
+      "description": "A scenic aerial lift offering panoramic views of Hakone, Owakudani, and Mount Fuji.",
+      "open": "09:00",
+      "close": "17:00",
+      "duration": 45,
+      "area": "Hakone",
+      "entryFee": 1500,
+      "rating": 4.6,
+      "tags": ["ropeway", "scenic", "transport"]
+    }
+  ]
+}

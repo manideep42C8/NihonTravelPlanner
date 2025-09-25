@@ -1,0 +1,65 @@
+{
+  "city": "Tokyo",
+  "attractions": [
+    {
+      "name": "Sensoji Temple",
+      "category": "culture",
+      "description": "Tokyo's oldest Buddhist temple located in Asakusa, known for its Thunder Gate and Nakamise shopping street.",
+      "open": "06:00",
+      "close": "17:00",
+      "duration": 90,
+      "area": "Asakusa",
+      "entryFee": 0,
+      "rating": 4.7,
+      "tags": ["temple", "historic", "culture"]
+    },
+    {
+      "name": "Shibuya Crossing",
+      "category": "shopping",
+      "description": "World-famous scramble crossing surrounded by shops, cafes, and nightlife.",
+      "open": "00:00",
+      "close": "23:59",
+      "duration": 60,
+      "area": "Shibuya",
+      "entryFee": 0,
+      "rating": 4.6,
+      "tags": ["shopping", "modern", "street"]
+    },
+    {
+      "name": "Tokyo Skytree",
+      "category": "landmark",
+      "description": "Tallest tower in Japan offering panoramic views, dining, and shopping experiences.",
+      "open": "08:00",
+      "close": "22:00",
+      "duration": 120,
+      "area": "Sumida",
+      "entryFee": 2100,
+      "rating": 4.8,
+      "tags": ["landmark", "view", "modern"]
+    },
+    {
+      "name": "Meiji Shrine",
+      "category": "culture",
+      "description": "Peaceful Shinto shrine surrounded by lush forest in central Tokyo.",
+      "open": "05:00",
+      "close": "18:00",
+      "duration": 90,
+      "area": "Shibuya",
+      "entryFee": 0,
+      "rating": 4.7,
+      "tags": ["shrine", "nature", "historic"]
+    },
+    {
+      "name": "Akihabara",
+      "category": "shopping",
+      "description": "Electronics and anime hub famous for gaming stores, manga, and maid cafes.",
+      "open": "10:00",
+      "close": "21:00",
+      "duration": 180,
+      "area": "Akihabara",
+      "entryFee": 0,
+      "rating": 4.6,
+      "tags": ["anime", "gaming", "shopping"]
+    }
+  ]
+}

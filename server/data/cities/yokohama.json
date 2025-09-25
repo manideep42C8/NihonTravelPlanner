@@ -1,0 +1,65 @@
+{
+  "city": "Yokohama",
+  "attractions": [
+    {
+      "name": "Minato Mirai 21",
+      "category": "scenic",
+      "description": "A modern waterfront district featuring shopping malls, an amusement park, and panoramic skyline views.",
+      "open": "10:00",
+      "close": "21:00",
+      "duration": 120,
+      "area": "Minato Mirai",
+      "entryFee": 0,
+      "rating": 4.7,
+      "tags": ["shopping", "modern", "scenic"]
+    },
+    {
+      "name": "Yokohama Chinatown",
+      "category": "food",
+      "description": "Japan’s largest Chinatown, filled with colorful gates, shops, and authentic Chinese cuisine.",
+      "open": "10:00",
+      "close": "22:00",
+      "duration": 90,
+      "area": "Chinatown",
+      "entryFee": 0,
+      "rating": 4.6,
+      "tags": ["chinatown", "food", "shopping"]
+    },
+    {
+      "name": "Cup Noodles Museum",
+      "category": "museum",
+      "description": "Interactive museum where visitors can learn about instant ramen and make their own custom cup noodles.",
+      "open": "10:00",
+      "close": "18:00",
+      "duration": 90,
+      "area": "Minato Mirai",
+      "entryFee": 500,
+      "rating": 4.5,
+      "tags": ["museum", "food", "family"]
+    },
+    {
+      "name": "Yamashita Park",
+      "category": "nature",
+      "description": "A seaside park with walking paths, gardens, and views of Yokohama Bay Bridge and ships.",
+      "open": "00:00",
+      "close": "23:59",
+      "duration": 60,
+      "area": "Yamashita-cho",
+      "entryFee": 0,
+      "rating": 4.6,
+      "tags": ["park", "seaside", "scenic"]
+    },
+    {
+      "name": "Landmark Tower Sky Garden",
+      "category": "scenic",
+      "description": "One of Japan’s tallest buildings, offering 360-degree views from its observation deck.",
+      "open": "10:00",
+      "close": "21:00",
+      "duration": 60,
+      "area": "Minato Mirai",
+      "entryFee": 1000,
+      "rating": 4.7,
+      "tags": ["tower", "views", "landmark"]
+    }
+  ]
+}

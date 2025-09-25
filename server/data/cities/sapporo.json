@@ -1,0 +1,65 @@
+{
+  "city": "Sapporo",
+  "attractions": [
+    {
+      "name": "Odori Park",
+      "category": "nature",
+      "description": "A central park in Sapporo, hosting festivals like the Sapporo Snow Festival with ice sculptures.",
+      "open": "00:00",
+      "close": "23:59",
+      "duration": 60,
+      "area": "Central Sapporo",
+      "entryFee": 0,
+      "rating": 4.6,
+      "tags": ["park", "festival", "nature"]
+    },
+    {
+      "name": "Sapporo TV Tower",
+      "category": "scenic",
+      "description": "Iconic tower offering panoramic views of the city and Odori Park from its observation deck.",
+      "open": "09:00",
+      "close": "22:00",
+      "duration": 45,
+      "area": "Odori",
+      "entryFee": 1000,
+      "rating": 4.5,
+      "tags": ["tower", "views", "landmark"]
+    },
+    {
+      "name": "Hokkaido Shrine",
+      "category": "culture",
+      "description": "Important Shinto shrine set in Maruyama Park, known for cherry blossoms and New Year visits.",
+      "open": "06:00",
+      "close": "16:00",
+      "duration": 60,
+      "area": "Maruyama",
+      "entryFee": 0,
+      "rating": 4.6,
+      "tags": ["shrine", "traditional", "historic"]
+    },
+    {
+      "name": "Sapporo Beer Museum",
+      "category": "museum",
+      "description": "A museum showcasing the history of beer in Japan with tastings of Sapporo’s famous brews.",
+      "open": "11:30",
+      "close": "20:00",
+      "duration": 90,
+      "area": "Kita-ku",
+      "entryFee": 500,
+      "rating": 4.4,
+      "tags": ["museum", "beer", "history"]
+    },
+    {
+      "name": "Mount Moiwa",
+      "category": "scenic",
+      "description": "A mountain with a ropeway leading to an observation deck, offering night views of Sapporo.",
+      "open": "10:30",
+      "close": "22:00",
+      "duration": 120,
+      "area": "Minami-ku",
+      "entryFee": 1700,
+      "rating": 4.7,
+      "tags": ["mountain", "views", "nature"]
+    }
+  ]
+}

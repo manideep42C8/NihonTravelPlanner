@@ -1,0 +1,65 @@
+{
+  "city": "Osaka",
+  "attractions": [
+    {
+      "name": "Osaka Castle",
+      "category": "historic",
+      "description": "Iconic Japanese castle surrounded by a large park and museum showcasing samurai history.",
+      "open": "09:00",
+      "close": "17:00",
+      "duration": 120,
+      "area": "Chuo",
+      "entryFee": 600,
+      "rating": 4.7,
+      "tags": ["castle", "historic", "museum"]
+    },
+    {
+      "name": "Dotonbori",
+      "category": "shopping",
+      "description": "Lively entertainment district known for neon lights, street food, and the Glico sign.",
+      "open": "00:00",
+      "close": "23:59",
+      "duration": 150,
+      "area": "Namba",
+      "entryFee": 0,
+      "rating": 4.8,
+      "tags": ["street food", "nightlife", "shopping"]
+    },
+    {
+      "name": "Universal Studios Japan",
+      "category": "entertainment",
+      "description": "Popular theme park featuring rides, attractions, and shows based on Hollywood movies.",
+      "open": "09:00",
+      "close": "21:00",
+      "duration": 480,
+      "area": "Konohana",
+      "entryFee": 8200,
+      "rating": 4.8,
+      "tags": ["theme park", "family", "entertainment"]
+    },
+    {
+      "name": "Umeda Sky Building",
+      "category": "landmark",
+      "description": "Futuristic skyscraper with a floating garden observatory offering panoramic views of Osaka.",
+      "open": "09:30",
+      "close": "22:30",
+      "duration": 90,
+      "area": "Umeda",
+      "entryFee": 1500,
+      "rating": 4.6,
+      "tags": ["landmark", "view", "modern"]
+    },
+    {
+      "name": "Osaka Aquarium Kaiyukan",
+      "category": "nature",
+      "description": "One of the largest aquariums in the world, featuring marine life from the Pacific Ring of Fire.",
+      "open": "10:00",
+      "close": "20:00",
+      "duration": 150,
+      "area": "Tempozan Harbor Village",
+      "entryFee": 2400,
+      "rating": 4.7,
+      "tags": ["aquarium", "family", "nature"]
+    }
+]
+}
