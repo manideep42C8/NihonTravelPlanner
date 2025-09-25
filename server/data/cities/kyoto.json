@@ -1,0 +1,65 @@
+{
+  "city": "Kyoto",
+  "attractions": [
+    {
+      "name": "Fushimi Inari Taisha",
+      "category": "culture",
+      "description": "Famous for its thousands of red torii gates winding through Mount Inari.",
+      "open": "00:00",
+      "close": "23:59",
+      "duration": 120,
+      "area": "Fushimi",
+      "entryFee": 0,
+      "rating": 4.9,
+      "tags": ["shrine", "hiking", "culture"]
+    },
+    {
+      "name": "Kinkaku-ji (Golden Pavilion)",
+      "category": "culture",
+      "description": "Zen temple covered in gold leaf, surrounded by a beautiful pond garden.",
+      "open": "09:00",
+      "close": "17:00",
+      "duration": 60,
+      "area": "Kita",
+      "entryFee": 400,
+      "rating": 4.8,
+      "tags": ["temple", "historic", "scenic"]
+    },
+    {
+      "name": "Arashiyama Bamboo Grove",
+      "category": "nature",
+      "description": "Iconic bamboo forest with walking paths, temples, and river views.",
+      "open": "00:00",
+      "close": "23:59",
+      "duration": 90,
+      "area": "Arashiyama",
+      "entryFee": 0,
+      "rating": 4.7,
+      "tags": ["nature", "forest", "scenic"]
+    },
+    {
+      "name": "Gion District",
+      "category": "culture",
+      "description": "Historic geisha district with teahouses, traditional architecture, and local dining.",
+      "open": "10:00",
+      "close": "22:00",
+      "duration": 120,
+      "area": "Gion",
+      "entryFee": 0,
+      "rating": 4.6,
+      "tags": ["geisha", "historic", "culture"]
+    },
+    {
+      "name": "Nijo Castle",
+      "category": "historic",
+      "description": "UNESCO site known for its gardens, nightingale floors, and shogunate history.",
+      "open": "08:45",
+      "close": "17:00",
+      "duration": 90,
+      "area": "Central Kyoto",
+      "entryFee": 800,
+      "rating": 4.7,
+      "tags": ["castle", "historic", "UNESCO"]
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "city": "Hiroshima",
+  "attractions": [
+    {
+      "name": "Hiroshima Peace Memorial Park",
+      "category": "historic",
+      "description": "A memorial park dedicated to the victims of the atomic bombing, featuring monuments and museums promoting peace.",
+      "open": "08:30",
+      "close": "18:00",
+      "duration": 120,
+      "area": "Naka Ward",
+      "entryFee": 200,
+      "rating": 4.9,
+      "tags": ["memorial", "museum", "historic"]
+    },
+    {
+      "name": "Atomic Bomb Dome",
+      "category": "historic",
+      "description": "UNESCO World Heritage site preserved as a reminder of the tragic events of 1945.",
+      "open": "00:00",
+      "close": "23:59",
+      "duration": 60,
+      "area": "Peace Park",
+      "entryFee": 0,
+      "rating": 4.8,
+      "tags": ["historic", "UNESCO", "landmark"]
+    },
+    {
+      "name": "Itsukushima Shrine",
+      "category": "culture",
+      "description": "Famous Shinto shrine on Miyajima Island with its iconic floating torii gate.",
+      "open": "06:30",
+      "close": "18:00",
+      "duration": 120,
+      "area": "Miyajima",
+      "entryFee": 300,
+      "rating": 4.9,
+      "tags": ["shrine", "island", "UNESCO"]
+    },
+    {
+      "name": "Hiroshima Castle",
+      "category": "historic",
+      "description": "Reconstructed castle surrounded by a moat, featuring a museum on samurai culture.",
+      "open": "09:00",
+      "close": "18:00",
+      "duration": 90,
+      "area": "Central Hiroshima",
+      "entryFee": 370,
+      "rating": 4.6,
+      "tags": ["castle", "historic", "museum"]
+    },
+    {
+      "name": "Shukkeien Garden",
+      "category": "nature",
+      "description": "A beautiful Japanese garden with ponds, bridges, and seasonal flowers.",
+      "open": "09:00",
+      "close": "18:00",
+      "duration": 90,
+      "area": "Naka Ward",
+      "entryFee": 260,
+      "rating": 4.7,
+      "tags": ["garden", "nature", "scenic"]
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "city": "Nagoya",
+  "attractions": [
+    {
+      "name": "Nagoya Castle",
+      "category": "historical",
+      "description": "A majestic 17th-century castle featuring ornate interiors, expansive gardens, and seasonal cherry blossoms.",
+      "open": "09:00",
+      "close": "16:30",
+      "duration": 90,
+      "area": "Naka-ku",
+      "entryFee": 500,
+      "rating": 4.5,
+      "tags": ["castle", "history", "cherryblossoms"]
+    },
+    {
+      "name": "Atsuta Jingu Shrine",
+      "category": "spiritual",
+      "description": "One of Japan’s oldest Shinto shrines, housing the sacred Kusanagi no Tsurugi sword.",
+      "open": "06:00",
+      "close": "18:00",
+      "duration": 60,
+      "area": "Atsuta-ku",
+      "entryFee": 0,
+      "rating": 4.7,
+      "tags": ["shinto", "spiritual", "nature"]
+    },
+    {
+      "name": "Toyota Commemorative Museum of Industry and Technology",
+      "category": "museum",
+      "description": "Explore the evolution of Toyota from textile machinery to automotive innovation.",
+      "open": "09:30",
+      "close": "17:00",
+      "duration": 90,
+      "area": "Nishi-ku",
+      "entryFee": 500,
+      "rating": 4.6,
+      "tags": ["technology", "industry", "family"]
+    },
+    {
+      "name": "SCMaglev and Railway Park",
+      "category": "museum",
+      "description": "A hands-on museum showcasing Japan’s high-speed trains, including the maglev.",
+      "open": "10:00",
+      "close": "17:30",
+      "duration": 90,
+      "area": "Minato-ku",
+      "entryFee": 1000,
+      "rating": 4.7,
+      "tags": ["railway", "technology", "family"]
+    },
+    {
+      "name": "Higashiyama Zoo and Botanical Gardens",
+      "category": "nature",
+      "description": "A combined zoo and botanical garden featuring over 450 species and diverse plant collections.",
+      "open": "09:00",
+      "close": "16:30",
+      "duration": 120,
+      "area": "Chikusa-ku",
+      "entryFee": 500,
+      "rating": 4.5,
+      "tags": ["zoo", "botanicalgarden", "family"]
+    },
+    {
+      "name": "Osu Shopping District",
+      "category": "shopping",
+      "description": "A vibrant area blending traditional and modern shops, eateries, and arcades.",
+      "open": "10:00",
+      "close": "21:00",
+      "duration": 90,
+      "area": "Naka-ku",
+      "entryFee": 0,
+      "rating": 4.5,
+      "tags": ["shopping", "food", "culture"]
+    },
+    {
+      "name": "Midland Square",
+      "category": "shopping",
+      "description": "Nagoya's tallest skyscraper with luxury shopping, dining, and the Sky Promenade offering city views.",
+      "open": "10:00",
+      "close": "22:00",
+      "duration": 60,
+      "area": "Nakamura-ku",
+      "entryFee": 1500,
+      "rating": 4.6,
+      "tags": ["shopping", "views", "modern"]
+    },
+    {
+      "name": "Port of Nagoya Public Aquarium",
+      "category": "family",
+      "description": "Features marine life from around the world, including dolphins and a large whale tank.",
+      "open": "09:30",
+      "close": "17:30",
+      "duration": 90,
+      "area": "Minato-ku",
+      "entryFee": 2000,
+      "rating": 4.5,
+      "tags": ["aquarium", "family", "marine"]
+    },
+    {
+      "name": "LEGOLAND Japan",
+      "category": "themepark",
+      "description": "A family-friendly amusement park with LEGO-themed rides and attractions.",
+      "open": "10:00",
+      "close": "17:00",
+      "duration": 240,
+      "area": "Minato-ku",
+      "entryFee": 7000,
+      "rating": 4.4,
+      "tags": ["themepark", "family", "LEGO"]
+    },
+    {
+      "name": "Nagoya TV Tower",
+      "category": "scenic",
+      "description": "Japan's oldest TV tower with panoramic views from its Sky Deck and Sky Balcony.",
+      "open": "10:00",
+      "close": "21:00",
+      "duration": 60,
+      "area": "Naka-ku",
+      "entryFee": 1000,
+      "rating": 4.4,
+      "tags": ["views", "landmark", "nightview"]
+    }
+  ]
+}
