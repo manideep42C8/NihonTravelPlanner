@@ -37,6 +37,46 @@
   },
   {
     "name": "Hakone",
-    "description": "Famous hot spring resort town with views of Mount Fuji. Known for Lake Ashi cruises, Hakone Shrine, and scenic ropeways."
+    "description": "Famous hot spring resort town with views of Mount Fuji. Known for Lake Ashi cruises, Hakone Shrine, and scenic ropeways."
+  },
+  {
+    "name": "Kobe",
+    "description": "A vibrant port city famous for Kobe beef, scenic harbor views, and the historic Kitano district. Offers Mount Rokko, Chinatown, and modern shopping."
+  },
+  {
+    "name": "Kanazawa",
+    "description": "A cultural city known for Kenrokuen Garden, Kanazawa Castle, and traditional tea houses. Famous for gold leaf crafts and preserved samurai districts."
+  },
+  {
+    "name": "Nagasaki",
+    "description": "A historic port city remembered for its unique blend of Japanese and European culture. Highlights include Glover Garden, Dejima, and the Atomic Bomb Museum."
+  },
+  {
+    "name": "Kamakura",
+    "description": "A coastal city with historic temples and shrines, including the Great Buddha. Known for scenic hiking trails, beaches, and traditional shopping streets."
+  },
+  {
+    "name": "Takayama",
+    "description": "A beautifully preserved Edo-period town in the Japanese Alps. Famous for its old town, Hida Folk Village, morning markets, and seasonal festivals."
+  },
+  {
+    "name": "Matsumoto",
+    "description": "A castle town famous for Matsumoto Castle, historic streets, and modern art museums. Nearby Kamikochi offers stunning alpine nature and hiking."
+  },
+  {
+    "name": "Matsuyama",
+    "description": "Known for Matsuyama Castle, Dogo Onsen, and historic temples. Offers retro charm with the Botchan Train and scenic coastal views."
+  },
+  {
+    "name": "Kumamoto",
+    "description": "A castle city with Kumamoto Castle, Suizenji Garden, and Hosokawa Mansion. Offers family-friendly attractions like the zoo and botanical gardens."
+  },
+  {
+    "name": "Nikko",
+    "description": "Famous for Toshogu Shrine, Shinkyo Bridge, Kegon Falls, and Lake Chuzenji. A scenic and spiritual destination with Edo-period cultural experiences."
+  },
+  {
+    "name": "Ise",
+    "description": "Sacred city home to Ise Grand Shrine, Okage Yokocho, and Futami Wedded Rocks. Known for spiritual heritage, traditional shopping streets, and scenic coastal views."
   }
 ]
