@@ -8,6 +8,7 @@ const tripRoutes = require('./routes/trips');
 const itineraryRoutes = require('./routes/itinerary');
 const userRoutes = require('./routes/user');
 const errorHandler = require('./middleware/errorHandler');
+const cityRoutes = require("./routes/cityRoutes");
 
 
 
@@ -34,6 +35,8 @@ app.use('/api/trips', tripRoutes);
 app.use('/api/itinerary', itineraryRoutes);
 
 app.use('/api/users', userRoutes);
+
+app.use("/api/cities",cityRoutes);
 
 // Centralized error handler
 app.use(errorHandler);

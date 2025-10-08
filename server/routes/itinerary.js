@@ -11,5 +11,8 @@ router.get("/", auth, itineraryController.getItineraries);
 router.get("/:tripId", auth, itineraryController.getItinerariesByTrip);
 router.put("/:id", auth, itineraryValidation, validate, itineraryController.updateItinerary);
 router.delete("/:id", auth, itineraryController.deleteItinerary);
+// Generate itinerary for a specific trip
+router.post("/trips/:tripId/generate-itinerary", auth, itineraryController.generateItinerary);
+
 
 module.exports = router;

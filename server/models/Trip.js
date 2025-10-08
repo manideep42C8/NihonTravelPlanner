@@ -27,6 +27,21 @@ const tripSchema = new mongoose.Schema({
     type: String,
     default: ''
   },
+  days: [
+    {
+      day: { type: Number, required: true },
+      activities: [
+        {
+          name: { type: String, required: true }, // attraction name
+          time: { type: String, default: "" },    // planned time
+          duration: { type: Number, default: 60 } // minutes
+        }
+      ],
+      // free-text like “Visit Tokyo Tower”
+      attractions: [{ type: mongoose.Schema.Types.ObjectId, ref: "Attraction" }], // link real attractions
+      image: { type: String } // optional image per day
+    }
+  ],
   createdAt: {
     type: Date,
     default: Date.now

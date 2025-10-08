@@ -1,13 +1,13 @@
-import mongoose from "mongoose";
+//models/City.js
+const mongoose = require("mongoose");
 
 const citySchema = new mongoose.Schema({
   name: { type: String, required: true, unique: true },
   description: { type: String, default: "" },
   country: { type: String, default: "Japan" },
-  // optional: coordinates, images, tags
   lat: Number,
   lng: Number,
   images: [String],
 }, { timestamps: true });
 
-export default mongoose.model("City", citySchema);
+module.exports = mongoose.model("City", citySchema);

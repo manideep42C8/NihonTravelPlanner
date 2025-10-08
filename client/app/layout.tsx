@@ -1,4 +1,5 @@
 import type React from "react"
+import { Plane } from "lucide-react";
 import { Geist, Manrope } from "next/font/google"
 import { GoogleOAuthProvider } from "@react-oauth/google"
 import "./globals.css"
