@@ -1,4 +1,5 @@
 NihonTravel Planner – Personalized Japan Trip Itinerary Builder
+
 Overview:
   NihonTravel Planner is a full-stack web application designed to help users plan their dream trips to Japan.
   It creates personalized itineraries based on preferences (culture, food, anime, nature, etc.).
@@ -17,3 +18,10 @@ Tech Stack:
 | **Mani Deep**         | Backend Developer & Team Lead    | API design, itinerary module, database connection, Git management |
 | **Krishna Suji** | Frontend Developer               | UI/UX design, page components, frontend integration               |
 | **Kalyan** | Full Stack/Integration Developer | API integration, deployment, testing                              |
+
+
+Future Enhancements:
+
+ Integration with Google Maps for route visualization
+ 
+ AI-powered destination recommendations
