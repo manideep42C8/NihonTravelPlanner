@@ -15,9 +15,9 @@ Tech Stack:
 
 | Name                  | Role                             | Responsibilities                                                  |
 | --------------------- | -------------------------------- | ----------------------------------------------------------------- |
-| **Mani Deep**         | Backend Developer & Team Lead    | API design, itinerary module, database connection, Git management |
-| **Krishna Suji** | Frontend Developer               | UI/UX design, page components, frontend integration               |
-| **Kalyan** | Full Stack/Integration Developer | API integration, deployment, testing                              |
+| [**Mani Deep**](https://github.com/<your-github-username>)         | Backend Developer & Team Lead    | API design, itinerary module, database connection, Git management |
+| [**Krishna Suji**](https://github.com/Kommireddikrishnasuji) | Frontend Developer               | UI/UX design, page components, frontend integration               |
+| [**Kalyan**](https://github.com/kalyan405111)  | Full Stack/Integration Developer | API integration, deployment, testing                              |
 
 
 Future Enhancements:
@@ -25,3 +25,4 @@ Future Enhancements:
  Integration with Google Maps for route visualization
  
  AI-powered destination recommendations
+
